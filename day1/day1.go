@@ -1,59 +1,47 @@
 package main
 
 import (
-	"bufio"
+	"adventofcode/m/utils"
 	"fmt"
-	"os"
 	"sort"
 )
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
 
 func sortDescending(list []int) []int {
 	sort.Slice(list, func(i, j int) bool {
 		return list[i] > list[j]
 	})
-	for _, v := range list {
-		fmt.Println(v)
-	}
 	return list
 }
 
-func topThree(list []int) int {
-	var sorted = sortDescending(list)
-	return sorted[0] + sorted[1] + sorted[2]
+func sum(numbers []int) int {
+	sum := 0
+	for _, number := range numbers {
+		sum += number
+	}
+	return sum
 }
 
-func main() {
-	file, err := os.Open("input.txt")
-	check(err)
-	scanner := bufio.NewScanner(file)
-	scanner.Split(bufio.ScanLines)
-	var txtlines []string
-
-	for scanner.Scan() {
-		txtlines = append(txtlines, scanner.Text())
-	}
-
-	file.Close()
-
+func calculateWeights(textLines []string) []int {
 	var weights []int
 	count := 0
-	for _, eachline := range txtlines {
-		fmt.Println(count)
+	for _, eachline := range textLines {
 		if eachline == "" {
 			weights = append(weights, count)
 			count = 0
 		} else {
 			var num int
 			_, err := fmt.Sscan(eachline, &num)
-			check(err)
+			utils.Check(err)
 			count += num
 		}
 	}
-	fmt.Println("MAX INDEX:", topThree(weights))
+	return weights
+}
+
+func main() {
+	textLines := utils.ReadLines("day1_input.txt")
+	weights := calculateWeights(textLines)
+	var sortedWeights = sortDescending(weights)
+	fmt.Println("PART1:", sortedWeights[0])
+	fmt.Println("PART2:", sum(sortedWeights[0:3]))
 }
