@@ -1,9 +1,10 @@
 package main
 
 import (
-	"adventofcode/m/utils"
 	"fmt"
 	"sort"
+
+	"github.com/Davidwalser/adventofcode2022/utils"
 )
 
 func sortDescending(list []int) []int {

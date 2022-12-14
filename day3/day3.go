@@ -1,8 +1,9 @@
 package main
 
 import (
-	"adventofcode/m/utils"
 	"fmt"
+
+	"github.com/Davidwalser/adventofcode2022/utils"
 )
 
 func splitInHalf(str string) (string, string) {
