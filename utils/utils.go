@@ -3,7 +3,14 @@ package utils
 import (
 	"bufio"
 	"os"
+	"strconv"
 )
+
+func ParseToInt(value string) int {
+	intValue, err := strconv.Atoi(value)
+	Check(err)
+	return intValue
+}
 
 func Check(e error) {
 	if e != nil {
