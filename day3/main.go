@@ -80,7 +80,7 @@ func part2(lines []string) int {
 }
 
 func main() {
-	lines := utils.ReadLines("day3_input.txt")
+	lines := utils.ReadLines("input.txt")
 	part1Points := part1(lines)
 	fmt.Println("TOTAL POINTS PART1: ", part1Points)
 	part2Points := part2(lines)

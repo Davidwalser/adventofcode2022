@@ -70,7 +70,7 @@ func countOverlap(pairs []Pair) int {
 }
 
 func main() {
-	lines := utils.ReadLines("day4_input.txt")
+	lines := utils.ReadLines("input.txt")
 	ranges := getRanges(lines)
 	fmt.Println("PART1 Fully overlap: ", countFullyOverlap(ranges))
 	fmt.Println("PART2 overlap: ", countOverlap(ranges))

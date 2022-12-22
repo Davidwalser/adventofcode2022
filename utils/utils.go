@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func ParseToInt(value string) int {
@@ -31,4 +32,14 @@ func ReadLines(fileName string) []string {
 
 	file.Close()
 	return txtlines
+}
+
+func ReadFile(fileName string) string {
+	file, err := os.ReadFile(fileName)
+	Check(err)
+	return string(file)
+}
+
+func SplitStringInLines(value string) []string {
+	return strings.Split(value, "\n")
 }

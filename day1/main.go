@@ -40,7 +40,7 @@ func calculateWeights(textLines []string) []int {
 }
 
 func main() {
-	textLines := utils.ReadLines("day1_input.txt")
+	textLines := utils.ReadLines("input.txt")
 	weights := calculateWeights(textLines)
 	var sortedWeights = sortDescending(weights)
 	fmt.Println("PART1:", sortedWeights[0])
